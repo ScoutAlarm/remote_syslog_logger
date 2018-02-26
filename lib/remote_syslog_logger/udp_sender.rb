@@ -28,7 +28,7 @@ module RemoteSyslogLogger
           packet.content = line
           @socket.send(packet.assemble, 0, @remote_hostname, @remote_port)
         rescue
-          $stderr.puts "#{self.class} error: #{$!.class}: #{$!}\nOriginal message: #{line}"
+          puts "#{self.class} error: #{$!.class}: #{$!}\nOriginal message: #{line}"
           raise if @whinyerrors
         end
       end
